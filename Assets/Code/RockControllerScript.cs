@@ -9,18 +9,24 @@ public class RockControllerScript : MonoBehaviour
     Mouse mouse;
     public List<RockScript> allRocks;
     public GameObject logPrefab;
-    public FairyScript fairy;
+    public List<FairyScript> fairyList;
     void Start()
     {
         mainCamera = Camera.main;
         mouse = Mouse.current;
         allRocks = new List<RockScript>();
-        fairy = GameObject.FindGameObjectWithTag("Fairy").GetComponent<FairyScript>();
+        foreach (GameObject fairy in GameObject.FindGameObjectsWithTag("Fairy"))
+        {
+            fairyList.Add(fairy.GetComponent<FairyScript>());
+        }
         foreach (GameObject rock in GameObject.FindGameObjectsWithTag("Rock"))
         {
             allRocks.Add(rock.GetComponent<RockScript>());
         }
-        fairy.targetRock = allRocks.Last();
+        foreach(FairyScript fairy in fairyList)
+        {
+            fairy.targetRock = allRocks.Last();
+        }
     }
     void Update()
     {
@@ -49,9 +55,12 @@ public class RockControllerScript : MonoBehaviour
                 ResetRocks();
                 //Hardcoded for now, if multiple valid rocks will have to refactor
                 hitRock.connectedRock = hitRock.validNextRocks[0].GetComponent<RockScript>();
-                if(fairy.targetRock == hitRock)
+                if (fairyList[0].targetRock == hitRock)
                 {
-                    fairy.targetRock = hitRock.connectedRock;
+                    foreach (FairyScript fairy in fairyList)
+                    {
+                        fairy.targetRock = hitRock.connectedRock;
+                    }
                 }  
             }
             else
