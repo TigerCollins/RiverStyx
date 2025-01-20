@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Assets/Plugins/Package/Example Scene/ExampleGameScene.unity
+    guid: 9795e658608065845966180772bb90b7
+  - enabled: 1
+    path: Assets/Assets/Plugins/Package/Drop In Scenes/MainMenu.unity
+    guid: 8303cf3cd701cab4f81cba1518fa0b23
+  - enabled: 1
+    path: Assets/Assets/Plugins/Package/Drop In Scenes/PauseMenu.unity
+    guid: d8f6883fe3c1bd546a088fa2a3f29aa0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
