@@ -2132,6 +2132,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &430646580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4647894899245155635, guid: fbee13a10681998499d782462205c999, type: 3}
+  m_PrefabInstance: {fileID: 569638224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d8a634511c50845a2d79ab40f4b43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &462923062 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 295995084598789908, guid: 120e97cdbb3e31f479003b24059db956, type: 3}
@@ -2236,7 +2247,7 @@ MonoBehaviour:
   allRocks: []
   logPrefab: {fileID: 2643609940113545614, guid: 919b86f472bbf704aa1c55c954754c8f, type: 3}
   fairyList: []
-  sticksRemaining: 5
+  stickPile: {fileID: 430646580}
 --- !u!4 &727730051
 Transform:
   m_ObjectHideFlags: 0
