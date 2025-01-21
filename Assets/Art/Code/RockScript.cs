@@ -17,7 +17,7 @@ public class RockScript : MonoBehaviour
 
     private void Awake()
     {
-        defaultMat = GetComponent<Renderer>().material;
+        defaultMat = GetComponentInChildren<Renderer>().material;
         rockController = FindFirstObjectByType<RockControllerScript>();
     }
     public void ChangeMaterial(Material newMaterial)
@@ -36,13 +36,13 @@ public class RockScript : MonoBehaviour
                 whichLog = i;
             }
         }
-        allLogs[whichLog].GetComponent<MeshRenderer>().enabled = true;
+        allLogs[whichLog].GetComponentInChildren<MeshRenderer>().enabled = true;
     }
     public void DeactivateLog()
     {
         foreach (GameObject log in allLogs)
         {
-            log.GetComponent<MeshRenderer>().enabled = false;
+            log.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -50,20 +50,21 @@ public class RockScript : MonoBehaviour
         if (other.CompareTag("Fairy"))
         {
             fairiesThatHavePassed++;
+            if (nextRock != null)
+            {
+                other.GetComponent<FairyScript>().targetRock = nextRock;
+            }
+            else if (isLastRock)
+            {
+                other.GetComponent<FairyScript>().targetRock = validNextRocks[0].GetComponent<RockScript>();
+            }
         }
-        if (fairiesThatHavePassed >= maxFairiesAllowed)
+        if (fairiesThatHavePassed >= maxFairiesAllowed && lastRock)
         {
             fairiesThatHavePassed = 0;
             lastRock.DeactivateLog();
             rockController.stickPile.AddStick();
-        }
-        if (nextRock != null)
-        {
-            other.GetComponent<FairyScript>().targetRock = nextRock;
-        }
-        else if (isLastRock)
-        {
-            other.GetComponent<FairyScript>().targetRock = validNextRocks[0].GetComponent<RockScript>();
+            lastRock = null;
         }
     }
 }
