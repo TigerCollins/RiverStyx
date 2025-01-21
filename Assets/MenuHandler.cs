@@ -17,6 +17,10 @@ public class MenuHandler : MonoBehaviour
     private static List<GameObject> menuList = new List<GameObject>();
 
     [SerializeField]
+    private GameObject mainMenu;
+    [SerializeField]
+    private GameObject creditsMainMenu;
+    [SerializeField]
     private GameObject pauseMenu;
     [SerializeField]
     private GameObject creditsMenu;
@@ -77,6 +81,16 @@ public class MenuHandler : MonoBehaviour
         if (loseStateMenu != null)
         {
             menuList.Add(loseStateMenu);
+        }
+
+        if (mainMenu != null)
+        {
+            menuList.Add(mainMenu);
+        }
+
+        if (creditsMainMenu != null)
+        {
+            menuList.Add(creditsMainMenu);
         }
 
     }
