@@ -6,6 +6,8 @@ using UnityEditor;
 
 public class MenuHandler : MonoBehaviour
 {
+    public static MenuHandler instance;
+
     [SerializeField]
     private GameObject defaultMenu;
 
@@ -15,13 +17,31 @@ public class MenuHandler : MonoBehaviour
     private GameObject pauseMenu;
     [SerializeField]
     private GameObject creditsMenu;
+    [SerializeField]
+    private GameObject winStateMenu;
+    [SerializeField]
+    private GameObject loseStateMenu;
 
     private static List<GameObject> menuList = new List<GameObject>();
 
     public void Awake()
     {
+        
+        CreateInstance();
         CreateMenuArray();
         SwitchToMenu(defaultMenu);
+
+    }
+
+    void CreateInstance()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void CreateMenuArray()
@@ -34,6 +54,16 @@ public class MenuHandler : MonoBehaviour
         if(creditsMenu != null)
         {
             menuList.Add(creditsMenu);
+        }
+
+        if (winStateMenu != null)
+        {
+            menuList.Add(winStateMenu);
+        }
+
+        if (loseStateMenu != null)
+        {
+            menuList.Add(loseStateMenu);
         }
 
     }
