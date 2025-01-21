@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEditor;
 using System.ComponentModel;
 using TMPro;
+using System.Linq;
+using System.Text;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -39,15 +41,24 @@ public class MenuHandler : MonoBehaviour
     [SerializeField]
     private int gameScore;
 
- 
+    [Header("Credits")]
+    [SerializeField]
+    private TextMeshProUGUI mainCreditsText;
+    [SerializeField]
+    private TextMeshProUGUI pauseCreditsText;
+
+
 
     public void Awake()
-    {
-        
+    {  
         CreateInstance();
         CreateMenuArray();
         SwitchToMenu(defaultMenu);
+    }
 
+    private void Start()
+    {
+        GenerateCredits();
     }
 
     void CreateInstance()
@@ -121,5 +132,18 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
-   
+    void GenerateCredits()
+    {
+        List<CreditsItem> _credits = MetaScript.metaInstance.GetCreditsList();
+        string _string = "";
+
+        foreach (CreditsItem item in _credits)
+        {
+            _string += item.GetName() + " - " + item.GetRole() + "<br>";
+        }
+
+        mainCreditsText.text = _string;
+        pauseCreditsText.text = _string;
+    }
+
 }

@@ -9,6 +9,15 @@ public class CreditsItem
     string name;
     [SerializeField]
     string role;
+
+    public string GetName()
+    {
+        return name;
+    }
+    public string GetRole()
+    {
+        return role;
+    }
 }
 
 public class MetaScript : MonoBehaviour
