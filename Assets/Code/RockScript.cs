@@ -11,12 +11,11 @@ public class RockScript : MonoBehaviour
     public int rockState = 0;
     public RockScript lastRock, nextRock;
     public List<GameObject> allLogs;
-    CapsuleCollider rockCollider;
+    public bool isLastRock;
 
     private void Awake()
     {
         defaultMat = GetComponent<Renderer>().material;
-        rockCollider = GetComponent<CapsuleCollider>();
     }
     public void ChangeMaterial(Material newMaterial)
     {
@@ -29,38 +28,26 @@ public class RockScript : MonoBehaviour
         int whichLog = -1;
         for (int i = 0; i < allLogs.Count; i++)
         {
-            if(Vector3.Distance(allLogs[i].transform.position, incomingRock.transform.position) < closestLog)
+            if (Vector3.Distance(allLogs[i].transform.position, incomingRock.transform.position) < closestLog)
             {
                 closestLog = Vector3.Distance(allLogs[i].transform.position, incomingRock.transform.position);
                 whichLog = i;
             }
-            Debug.Log("Closest log is " + whichLog);
-            Debug.Log("Distance was " + closestLog);
-            allLogs[whichLog].GetComponent<MeshRenderer>().enabled = true;
         }
+        Debug.Log("Closest log is " + whichLog);
+        Debug.Log("Distance was " + closestLog);
+        allLogs[whichLog].GetComponent<MeshRenderer>().enabled = true;
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Fairy") && nextRock != null)
         {
             other.GetComponent<FairyScript>().targetRock = nextRock;
+            
         }
-    }
-    public void DeactivateLog(int whichLog)
-    {
-        switch (whichLog)
+        else if (isLastRock)
         {
-            default:
-                break;
-            case 1:
-                allLogs[0].SetActive(false);
-                break;
-            case 2:
-                allLogs[1].SetActive(false);
-                break;
-            case 3:
-                allLogs[2].SetActive(false);
-                break;
+            other.GetComponent<FairyScript>().targetRock = validNextRocks[0].GetComponent<RockScript>();
         }
     }
 }

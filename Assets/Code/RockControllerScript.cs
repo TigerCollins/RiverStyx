@@ -10,6 +10,7 @@ public class RockControllerScript : MonoBehaviour
     public List<RockScript> allRocks;
     public GameObject logPrefab;
     public List<FairyScript> fairyList;
+    public StickPileScript stickPile;
     void Start()
     {
         mainCamera = Camera.main;
@@ -21,7 +22,7 @@ public class RockControllerScript : MonoBehaviour
         }
         foreach (GameObject rock in GameObject.FindGameObjectsWithTag("Rock"))
         {
-            allRocks.Add(rock.GetComponent<RockScript>());
+            allRocks.Add(rock.GetComponentInChildren<RockScript>());
         }
         foreach(FairyScript fairy in fairyList)
         {
@@ -49,7 +50,7 @@ public class RockControllerScript : MonoBehaviour
             //grab the rock script we clicked on
             RockScript hitRock = hit.collider.gameObject.GetComponent<RockScript>();
             //If the rock was orange as a valid option to place a bridge, we need to place the bridge
-            if (hitRock.rockState == 2)
+            if (hitRock.rockState == 2 && stickPile.sticksRemaining > 0)
             {
                 for (int i = 0; i < allRocks.Count; i++)
                 {
@@ -72,9 +73,10 @@ public class RockControllerScript : MonoBehaviour
                     }
                 }
                 ResetRocks();
+                stickPile.RemoveStick();
             }
             //if we did hit a rock but we couldn't build a bridge
-            else
+            else if(stickPile.sticksRemaining > 0)
             {
                 //reset all rocks to default
                 ResetRocks();
