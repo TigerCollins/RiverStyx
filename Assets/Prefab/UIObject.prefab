@@ -3245,7 +3245,7 @@ GameObject:
   - component: {fileID: 5705566526435057145}
   - component: {fileID: 2983375561836037415}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: WinStateScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4334,7 +4334,7 @@ GameObject:
   - component: {fileID: 5276947529096534889}
   - component: {fileID: 6955086755056691435}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: LoseStateScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4644,6 +4644,9 @@ MonoBehaviour:
   creditsMenu: {fileID: 4081236258162820212}
   winStateMenu: {fileID: 2504695586749399244}
   loseStateMenu: {fileID: 5465863531166668845}
+  winScoreText: {fileID: 6955086755056691435}
+  loseScoreText: {fileID: 2983375561836037415}
+  gameScore: 0
 --- !u!1 &8266723195546448020
 GameObject:
   m_ObjectHideFlags: 0

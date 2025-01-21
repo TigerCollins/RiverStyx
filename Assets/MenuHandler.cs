@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.ComponentModel;
+using TMPro;
 
 public class MenuHandler : MonoBehaviour
 {
-    public static MenuHandler instance;
+    public static MenuHandler menuInstance;
 
     [SerializeField]
     private GameObject defaultMenu;
 
     [Header("Menus")]
-       
+    private static List<GameObject> menuList = new List<GameObject>();
+
     [SerializeField]
     private GameObject pauseMenu;
     [SerializeField]
@@ -22,7 +25,17 @@ public class MenuHandler : MonoBehaviour
     [SerializeField]
     private GameObject loseStateMenu;
 
-    private static List<GameObject> menuList = new List<GameObject>();
+
+
+    [Header("Score")]
+    [SerializeField]
+    private TextMeshProUGUI winScoreText;
+    [SerializeField]
+    private TextMeshProUGUI loseScoreText;
+    [SerializeField]
+    private int gameScore;
+
+ 
 
     public void Awake()
     {
@@ -35,12 +48,12 @@ public class MenuHandler : MonoBehaviour
 
     void CreateInstance()
     {
-        if(instance != null)
+        if(menuInstance != null)
         {
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        menuInstance = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -66,6 +79,13 @@ public class MenuHandler : MonoBehaviour
             menuList.Add(loseStateMenu);
         }
 
+    }
+
+    public void SetScore(int _score)
+    {
+       gameScore = _score;
+        winScoreText.text = "Score: " + gameScore.ToString();
+        loseScoreText.text = "Score: " + gameScore.ToString();
     }
 
     public void SwitchToMenu(GameObject _menu)
