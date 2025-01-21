@@ -14,7 +14,7 @@ public class MenuHandler : MonoBehaviour
     private GameObject defaultMenu;
 
     [Header("Menus")]
-    private static List<GameObject> menuList = new List<GameObject>();
+    private List<GameObject> menuList = new List<GameObject>();
 
     [SerializeField]
     private GameObject mainMenu;
@@ -121,12 +121,5 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#endif
-    }
+   
 }
