@@ -25,7 +25,8 @@ public class RockControllerScript : MonoBehaviour
         }
         foreach(FairyScript fairy in fairyList)
         {
-            fairy.targetRock = allRocks.Last();
+            RockScript closestRock = allRocks.OrderBy(rock => Vector3.Distance(rock.transform.position, fairy.transform.position)).First();
+            fairy.targetRock = closestRock;
         }
     }
     void Update()
@@ -45,29 +46,42 @@ public class RockControllerScript : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.gameObject.CompareTag("Rock"))
         {
+            //grab the rock script we clicked on
             RockScript hitRock = hit.collider.gameObject.GetComponent<RockScript>();
-            if(hitRock.rockState == 1)
+            //If the rock was orange as a valid option to place a bridge, we need to place the bridge
+            if (hitRock.rockState == 2)
             {
-                Vector3 logPosition = hitRock.transform.position;
-                logPosition.x += 2.5f;
-                logPosition.y += 0.25f;
-                Instantiate(logPrefab, logPosition, Quaternion.identity);
-                ResetRocks();
-                //Hardcoded for now, if multiple valid rocks will have to refactor
-                hitRock.connectedRock = hitRock.validNextRocks[0].GetComponent<RockScript>();
-                if (fairyList[0].targetRock == hitRock)
+                for (int i = 0; i < allRocks.Count; i++)
                 {
-                    foreach (FairyScript fairy in fairyList)
+                    //find the rock that was clicked that made this rock valid as a building spot
+                    if (allRocks[i].rockState == 1)
                     {
-                        fairy.targetRock = hitRock.connectedRock;
+                        //tell the rock this rock is the one we came from
+                        hitRock.lastRock = allRocks[i];
                     }
-                }  
+                }
+                //activate the log bridge on hit rocks last rock
+                hitRock.lastRock.ActivateLog(hitRock.gameObject);
+                hitRock.lastRock.nextRock = hitRock;
+                //then tell the fairies to go to the new rock
+                foreach (FairyScript fairy in fairyList)
+                { 
+                    if(fairy.targetRock == hitRock.lastRock)
+                    {
+                        fairy.targetRock = hitRock;
+                    }
+                }
+                ResetRocks();
             }
+            //if we did hit a rock but we couldn't build a bridge
             else
             {
+                //reset all rocks to default
                 ResetRocks();
+                //set the rock we clicked on to become the base of the next bridge
                 hitRock.rockState = 1;
                 hitRock.ChangeMaterial(hitRock.activeMaterial);
+                //tell the rocks next valid rocks to become active
                 foreach (GameObject rock in hitRock.validNextRocks)
                 {
                     RockScript validRock = rock.GetComponent<RockScript>();
