@@ -3483,6 +3483,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2010063641296964922, guid: 120e97cdbb3e31f479003b24059db956, type: 3}
+      propertyPath: maxFairiesAllowed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010063641296964922, guid: 120e97cdbb3e31f479003b24059db956, type: 3}
       propertyPath: validNextRocks.Array.size
       value: 3
       objectReference: {fileID: 0}

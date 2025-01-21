@@ -14,7 +14,10 @@ public class StickPileScript : MonoBehaviour
     }
     public void AddStick()
     {
-        sticksRemaining++;
         sticks[sticksRemaining].SetActive(true);
+        if(sticksRemaining < sticks.Count)
+        {
+            sticksRemaining++;
+        }
     }
 }
