@@ -92,14 +92,14 @@ public class RockScript : MonoBehaviour
             if (fairiesThatHavePassed >= maxFairiesAllowed && MetaScript.metaInstance != null && RockControllerScript.rockInstance != null)
             {
                     Debug.Log("ahhh");
-                    if (RockControllerScript.rockInstance.NextLevelName == "")
+                    if (RockControllerScript.rockInstance.nextLevelName == "")
                     {
                         MetaScript.metaInstance.LoadLevel("GameLevel");
                     }
 
                     else
                     {
-                        MetaScript.metaInstance.LoadLevel(RockControllerScript.rockInstance.NextLevelName);
+                        MetaScript.metaInstance.LoadLevel(RockControllerScript.rockInstance.nextLevelName);
                     }
             }
 

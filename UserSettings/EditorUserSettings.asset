@@ -5,51 +5,26 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b07a68ffab74f9ee2a3a30300cea1a11320d0beb1a0c25f7060f494b4cdf1b18f3045e38cb5ad8
+      flags: 0
     RecentlyUsedSceneGuid-0:
-<<<<<<< HEAD
-      value: 02010c0755500a58085f557646720944444e4b2b78787e652c2f4e65e1e56160
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 05520d50520d5f0b085c5972487a0d44134e4c792e2976627f7a1e61e7e4673a
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 05530550540159590f0c0e7415750c4412154f782a717669282a4f61e7b56d61
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 05000307060c080f580f5f7348700e44444e4b28797e7162787a4967b6b46139
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 560506505601510a5b5e597216270644414f4a2f2e7e776279701963b3e3643e
-      flags: 0
-    RecentlyUsedSceneGuid-5:
       value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
       flags: 0
-    RecentlyUsedSceneGuid-6:
-      value: 0150555f51565b585e5c0f7143260e441415497e7f29236278781864e7b3616f
-      flags: 0
-    RecentlyUsedSceneGuid-7:
-      value: 5a05565e56035f5a0b5f592441270a44444e1c792f7b75322e7e4867b2b53761
-      flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-1:
       value: 56030107030150090f0d0f7a47225d4415164d79792974327b2a4a37bae66c68
       flags: 0
-    RecentlyUsedSceneGuid-9:
-      value: 5a5707055051500e0c5e0d7743255a444615407a7a7077647c2d4f6bb1b7616b
-=======
-      value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 5a5707055051500e0c5e0d7743255a444615407a7a7077647c2d4f6bb1b7616b
-      flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 0150555f51565b585e5c0f7143260e441415497e7f29236278781864e7b3616f
+      value: 5a5707055051500e0c5e0d7743255a444615407a7a7077647c2d4f6bb1b7616b
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 5a05565e56035f5a0b5f592441270a44444e1c792f7b75322e7e4867b2b53761
+      value: 0150555f51565b585e5c0f7143260e441415497e7f29236278781864e7b3616f
       flags: 0
     RecentlyUsedSceneGuid-4:
+      value: 5a05565e56035f5a0b5f592441270a44444e1c792f7b75322e7e4867b2b53761
+      flags: 0
+    RecentlyUsedSceneGuid-5:
       value: 5754565104545b095a080f7147720f44104e1b727e2a74612f7e1836b6e46c6c
->>>>>>> Jordan/Level-Composition
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

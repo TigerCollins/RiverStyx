@@ -5,24 +5,20 @@ using System.Linq;
 
 public class RockControllerScript : MonoBehaviour
 {
-    public static RockControllerScript rockInstance;
-
     Camera mainCamera;
     Mouse mouse;
     public List<RockScript> allRocks;
     public GameObject logPrefab;
     public List<FairyScript> fairyList;
     public StickPileScript stickPile;
-    public string NextLevelName;
-
+    public static RockControllerScript rockInstance;
+    public string nextLevelName;
     void Awake()
     {
         rockInstance = this;
     }
-
     void Start()
     {
-    
         mainCamera = Camera.main;
         mouse = Mouse.current;
         allRocks = new List<RockScript>();
@@ -40,7 +36,6 @@ public class RockControllerScript : MonoBehaviour
             fairy.targetRock = closestRock;
         }
     }
-
     void Update()
     {
         if (mouse.leftButton.wasPressedThisFrame)
@@ -86,7 +81,7 @@ public class RockControllerScript : MonoBehaviour
                 ResetRocks();
                 //stickPile.RemoveStick();
             }
-            /*//if we did hit a rock but we couldn't build a bridge
+            //if we did hit a rock but we couldn't build a bridge
             else if(stickPile.sticksRemaining > 0)
             {
                 //reset all rocks to default
@@ -101,12 +96,11 @@ public class RockControllerScript : MonoBehaviour
                     validRock.ChangeMaterial(validRock.readyMaterial);
                     validRock.rockState = 2;
                 }
-            }*/
+            }
         }
     }
     public void ResetRocks()
     {
-        print("ok");
         foreach (RockScript rock in allRocks)
         {
             rock.ChangeMaterial(rock.defaultMat);
