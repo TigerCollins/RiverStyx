@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class RockScript : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class RockScript : MonoBehaviour
     public RockScript lastRock, nextRock;
     public List<GameObject> allLogs;
     public bool isLastRock;
+    public bool endGameWhenReached;
+    bool endGameStarted;
     public int fairiesThatHavePassed, maxFairiesAllowed;
     RockControllerScript rockController;
 
@@ -57,6 +60,16 @@ public class RockScript : MonoBehaviour
             else if (isLastRock)
             {
                 other.GetComponent<FairyScript>().targetRock = validNextRocks[0].GetComponent<RockScript>();
+                if(MetaScript.metaInstance != null)
+                {
+                    MetaScript.metaInstance.SetScore(MetaScript.metaInstance.GetScore() + 1);
+                }
+                    
+            }
+
+            if(endGameWhenReached & !endGameStarted)
+            {
+                StartCoroutine(TryEndLevel());
             }
         }
         if (fairiesThatHavePassed >= maxFairiesAllowed && lastRock)
@@ -65,7 +78,39 @@ public class RockScript : MonoBehaviour
             lastRock.DeactivateLog();
             rockController.stickPile.AddStick();
             lastRock = null;
+            
         }
+    }
+
+    IEnumerator TryEndLevel()
+    {
+        if(!endGameStarted)
+        {
+            endGameStarted = true;
+            yield return new WaitForSeconds(1);
+
+            if (fairiesThatHavePassed >= maxFairiesAllowed && MetaScript.metaInstance != null && RockControllerScript.rockInstance != null)
+            {
+                    Debug.Log("ahhh");
+                    if (RockControllerScript.rockInstance.NextLevelName == "")
+                    {
+                        MetaScript.metaInstance.LoadLevel("GameLevel");
+                    }
+
+                    else
+                    {
+                        MetaScript.metaInstance.LoadLevel(RockControllerScript.rockInstance.NextLevelName);
+                    }
+            }
+
+            else
+            {
+                Debug.Log("hmmm");
+            }
+        }
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield break;
+
     }
 }
 

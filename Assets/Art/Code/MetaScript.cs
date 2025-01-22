@@ -113,4 +113,9 @@ public class MetaScript : MonoBehaviour
         playerScore = _score;
         menuHandler.SetScoreUI(_score);
     }
+
+    public int GetScore()
+    {
+        return playerScore;
+    }
 }

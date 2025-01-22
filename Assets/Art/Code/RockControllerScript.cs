@@ -5,14 +5,24 @@ using System.Linq;
 
 public class RockControllerScript : MonoBehaviour
 {
+    public static RockControllerScript rockInstance;
+
     Camera mainCamera;
     Mouse mouse;
     public List<RockScript> allRocks;
     public GameObject logPrefab;
     public List<FairyScript> fairyList;
     public StickPileScript stickPile;
+    public string NextLevelName;
+
+    void Awake()
+    {
+        rockInstance = this;
+    }
+
     void Start()
     {
+    
         mainCamera = Camera.main;
         mouse = Mouse.current;
         allRocks = new List<RockScript>();
@@ -30,6 +40,7 @@ public class RockControllerScript : MonoBehaviour
             fairy.targetRock = closestRock;
         }
     }
+
     void Update()
     {
         if (mouse.leftButton.wasPressedThisFrame)

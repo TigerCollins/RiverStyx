@@ -2917,7 +2917,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 2.96
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -2996,7 +2996,7 @@ MonoBehaviour:
   m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 1
+  m_SoftShadowQuality: 2
 --- !u!1001 &413505750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4894,6 +4894,7 @@ MonoBehaviour:
   logPrefab: {fileID: 2643609940113545614, guid: 919b86f472bbf704aa1c55c954754c8f, type: 3}
   fairyList: []
   stickPile: {fileID: 0}
+  NextLevelName: 
 --- !u!4 &727730051
 Transform:
   m_ObjectHideFlags: 0
@@ -6607,6 +6608,7 @@ MonoBehaviour:
   nextRock: {fileID: 0}
   allLogs: []
   isLastRock: 0
+  endGameWhenReached: 0
   fairiesThatHavePassed: 0
   maxFairiesAllowed: 0
 --- !u!1 &1095748481
