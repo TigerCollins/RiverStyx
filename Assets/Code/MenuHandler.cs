@@ -7,6 +7,7 @@ using System.ComponentModel;
 using TMPro;
 using System.Linq;
 using System.Text;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class MenuHandler : MonoBehaviour
     private GameObject winStateMenu;
     [SerializeField]
     private GameObject loseStateMenu;
+    [SerializeField]
+    private GameObject HUDMenu;
 
 
 
@@ -39,26 +42,43 @@ public class MenuHandler : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI loseScoreText;
     [SerializeField]
-    private int gameScore;
+    private TextMeshProUGUI hudScoreText;
 
     [Header("Credits")]
     [SerializeField]
     private TextMeshProUGUI mainCreditsText;
     [SerializeField]
     private TextMeshProUGUI pauseCreditsText;
-
-
+    [SerializeField]
+    private TextMeshProUGUI mainAssetsText;
+    [SerializeField]
+    private TextMeshProUGUI pauseAssetsText;
 
     public void Awake()
     {  
         CreateInstance();
         CreateMenuArray();
         SwitchToMenu(defaultMenu);
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
     private void Start()
     {
         GenerateCredits();
+        GenerateAssets();
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name != "GameLevel")
+        {
+            SwitchToMenu(HUDMenu);
+        }
+
+        else
+        {
+            SwitchToMenu(mainMenu);
+        }
     }
 
     void CreateInstance()
@@ -104,13 +124,18 @@ public class MenuHandler : MonoBehaviour
             menuList.Add(creditsMainMenu);
         }
 
+        if (HUDMenu != null)
+        {
+            menuList.Add(HUDMenu);
+        }
+
     }
 
-    public void SetScore(int _score)
+    public void SetScoreUI(int _score)
     {
-       gameScore = _score;
-        winScoreText.text = "Score: " + gameScore.ToString();
-        loseScoreText.text = "Score: " + gameScore.ToString();
+        winScoreText.text = "Score: " + _score.ToString();
+        loseScoreText.text = "Score: " + _score.ToString();
+        hudScoreText.text = "Score: " + _score.ToString();
     }
 
     public void SwitchToMenu(GameObject _menu)
@@ -144,6 +169,20 @@ public class MenuHandler : MonoBehaviour
 
         mainCreditsText.text = _string;
         pauseCreditsText.text = _string;
+    }
+
+    void GenerateAssets()
+    {
+        List<AssetsItem> _assets = MetaScript.metaInstance.GetAssetsList();
+        string _string = "";
+
+        foreach (AssetsItem item in _assets)
+        {
+            _string += item.GetName() + "<br>";
+        }
+
+        mainAssetsText.text = _string;
+        pauseAssetsText.text = _string;
     }
 
 }

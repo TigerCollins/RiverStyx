@@ -20,16 +20,40 @@ public class CreditsItem
     }
 }
 
+[System.Serializable]
+public class AssetsItem
+{
+    [SerializeField]
+    string name;
+
+    public string GetName()
+    {
+        return name;
+    }
+}
+
 public class MetaScript : MonoBehaviour
 {
     public static MetaScript metaInstance;
+    MenuHandler menuHandler;
 
     [SerializeField]
     private List<CreditsItem> creditsList = new List<CreditsItem>();
+    [SerializeField]
+    private List<AssetsItem> assetsList = new List<AssetsItem>();
+
+    int playerScore;
 
     private void Awake()
     {
+        FindReferences();
         CreateInstance();
+        SetScore(0);
+    }
+
+    void FindReferences()
+    {
+        menuHandler = GameObject.FindObjectOfType<MenuHandler>();
     }
 
     void CreateInstance()
@@ -43,8 +67,20 @@ public class MetaScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetTimeScale(float _timeScale)
+    {
+        Time.timeScale = _timeScale;
+    }
+
     public void LoadLevel(string levelName)
     {
+        Application.LoadLevel(levelName);
+    }
+
+    public void StartGame(string levelName)
+    {
+        SetScore(0);
+        SetTimeScale(1);
         LoadLevel(levelName);
     }
 
@@ -65,5 +101,16 @@ public class MetaScript : MonoBehaviour
     public List<CreditsItem> GetCreditsList()
     {
         return creditsList;
+    }
+
+    public List<AssetsItem> GetAssetsList()
+    {
+        return assetsList;
+    }
+
+    public void SetScore(int _score)
+    {
+        playerScore = _score;
+        menuHandler.SetScoreUI(_score);
     }
 }
