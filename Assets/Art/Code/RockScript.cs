@@ -45,7 +45,7 @@ public class RockScript : MonoBehaviour
     {
         foreach (GameObject log in allLogs)
         {
-            log.GetComponentInChildren<MeshRenderer>().enabled = false;
+           // log.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -76,7 +76,7 @@ public class RockScript : MonoBehaviour
         {
             fairiesThatHavePassed = 0;
             lastRock.DeactivateLog();
-            rockController.stickPile.AddStick();
+            //rockController.stickPile.AddStick();
             lastRock = null;
             
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEngine;
 
@@ -75,6 +76,11 @@ public class MetaScript : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         Application.LoadLevel(levelName);
+    }
+
+    public void ReloadLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().name);
     }
 
     public void StartGame(string levelName)

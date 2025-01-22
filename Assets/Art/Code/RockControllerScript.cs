@@ -106,6 +106,7 @@ public class RockControllerScript : MonoBehaviour
     }
     public void ResetRocks()
     {
+        print("ok");
         foreach (RockScript rock in allRocks)
         {
             rock.ChangeMaterial(rock.defaultMat);
