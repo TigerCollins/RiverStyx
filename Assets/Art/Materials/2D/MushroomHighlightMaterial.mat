@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2DMushroomMaterial
+  m_Name: MushroomHighlightMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 8dc48ca96f7d62044aba409f09802366, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bde4578f45eeec54eb32b08ce21d1dbf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 978c426620e3414488b9b0bfe394bd47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

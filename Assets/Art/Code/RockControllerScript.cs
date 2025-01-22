@@ -71,15 +71,15 @@ public class RockControllerScript : MonoBehaviour
                 hitRock.lastRock.ActivateLog(hitRock.gameObject);
                 hitRock.lastRock.nextRock = hitRock;
                 //then tell the fairies to go to the new rock
-                foreach (FairyScript fairy in fairyList)
+                /*foreach (FairyScript fairy in fairyList)
                 { 
                     if(fairy.targetRock == hitRock.lastRock)
                     {
                         fairy.targetRock = hitRock;
                     }
-                }
+                }*/
                 ResetRocks();
-                //stickPile.RemoveStick();
+                stickPile.RemoveStick();
             }
             //if we did hit a rock but we couldn't build a bridge
             else if(stickPile.sticksRemaining > 0)

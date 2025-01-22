@@ -58,8 +58,14 @@ MonoBehaviour:
   allLogs:
   - {fileID: 3714445762990743865}
   isLastRock: 0
+  isFirstRock: 0
+  endGameWhenReached: 0
   fairiesThatHavePassed: 0
   maxFairiesAllowed: 4
+  fairyPrefabs: []
+  fairyScripts: []
+  timerCurrent: 0
+  timerMax: 2
 --- !u!33 &6077158484974620817
 MeshFilter:
   m_ObjectHideFlags: 0

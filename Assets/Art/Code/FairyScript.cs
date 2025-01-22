@@ -13,7 +13,7 @@ public class FairyScript : MonoBehaviour
     {
        
         float forceMultiplier = Mathf.Max(0f, moveForce - forceFalloff * Vector3.Distance(targetRock.transform.position, transform.position));
-
-        rb.AddForce((targetRock.transform.position - transform.position) * forceMultiplier);
+        Vector3 hoverPos = targetRock.transform.position + Vector3.up * 2.25f;
+        rb.AddForce((hoverPos - transform.position) * forceMultiplier);
     }
 }
