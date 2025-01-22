@@ -35,8 +35,13 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-8:
       value: 5a5707055051500e0c5e0d7743255a444615407a7a7077647c2d4f6bb1b7616b
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedSceneGuid-9:
       value: 56030107030150090f0d0f7a47225d4415164d79792974327b2a4a37bae66c68
+=======
+    RecentlyUsedSceneGuid-2:
+      value: 5a05565e56035f5a0b5f592441270a44444e1c792f7b75322e7e4867b2b53761
+>>>>>>> origin/Jordan/Testing
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
