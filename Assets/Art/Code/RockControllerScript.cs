@@ -73,9 +73,9 @@ public class RockControllerScript : MonoBehaviour
                     }
                 }
                 ResetRocks();
-                stickPile.RemoveStick();
+                //stickPile.RemoveStick();
             }
-            //if we did hit a rock but we couldn't build a bridge
+            /*//if we did hit a rock but we couldn't build a bridge
             else if(stickPile.sticksRemaining > 0)
             {
                 //reset all rocks to default
@@ -90,7 +90,7 @@ public class RockControllerScript : MonoBehaviour
                     validRock.ChangeMaterial(validRock.readyMaterial);
                     validRock.rockState = 2;
                 }
-            }
+            }*/
         }
     }
     public void ResetRocks()
