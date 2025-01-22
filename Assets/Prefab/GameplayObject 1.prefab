@@ -935,6 +935,10 @@ PrefabInstance:
       propertyPath: m_Padding.m_Left
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 307580765606433001, guid: a35ffea88b3082944873731f76831be8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
     - target: {fileID: 435050677146583387, guid: a35ffea88b3082944873731f76831be8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1035,6 +1039,10 @@ PrefabInstance:
       propertyPath: pauseAssetsText
       value: 
       objectReference: {fileID: 7755061004264156643}
+    - target: {fileID: 2986485065359607569, guid: a35ffea88b3082944873731f76831be8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
     - target: {fileID: 3210678818751636437, guid: a35ffea88b3082944873731f76831be8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

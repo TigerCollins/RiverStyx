@@ -52,6 +52,8 @@ public class RockScript : MonoBehaviour
                 spawnPos.x -= 5f;
                 spawnPos.y += 2.25f;
                 GameObject newFairy = Instantiate(fairyPrefabs[randNum], spawnPos, Quaternion.identity);
+               // newFairy.transform.GetChild(0).localScale = new Vector3(0.2f, 0.2f, 0.2f);
+              //  newFairy.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.red;
                 newFairy.GetComponent<FairyScript>().targetRock = this;
                 fairyScripts.Add(newFairy.GetComponent<FairyScript>());
             }
