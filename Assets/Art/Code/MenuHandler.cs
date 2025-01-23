@@ -28,7 +28,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField]
     private GameObject creditsMenu;
     [SerializeField]
-    private GameObject winStateMenu;
+    public GameObject winStateMenu;
     [SerializeField]
     private GameObject loseStateMenu;
     [SerializeField]
@@ -133,9 +133,9 @@ public class MenuHandler : MonoBehaviour
 
     public void SetScoreUI(int _score)
     {
-        winScoreText.text = "Score: " + _score.ToString();
-        loseScoreText.text = "Score: " + _score.ToString();
-        hudScoreText.text = "Score: " + _score.ToString();
+        winScoreText.text = "Fairies Crossed: " + _score.ToString();
+        loseScoreText.text = "Fairies Crossed: " + _score.ToString();
+        hudScoreText.text = "Fairies Crossed: " + _score.ToString();
     }
 
     public void SwitchToMenu(GameObject _menu)
