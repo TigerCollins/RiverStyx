@@ -3844,8 +3844,8 @@ MonoBehaviour:
   logPrefab: {fileID: 2643609940113545614, guid: 919b86f472bbf704aa1c55c954754c8f, type: 3}
   fairyList: []
   stickPile: {fileID: 1171777571}
-  nextLevel: 0
-  scoreToWin: 0
+  nextLevel: 2
+  scoreToWin: 5
 --- !u!4 &727730051
 Transform:
   m_ObjectHideFlags: 0

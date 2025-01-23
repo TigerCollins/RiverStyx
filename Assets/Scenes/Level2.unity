@@ -949,6 +949,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52218650932296729, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 52218650932296729, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 52218650932296729, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 241.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 52218650932296729, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -161.0625
+      objectReference: {fileID: 0}
     - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -964,6 +980,22 @@ PrefabInstance:
     - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224174892903778300, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224174892903778300, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224174892903778300, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 241.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224174892903778300, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -49.8095
       objectReference: {fileID: 0}
     - target: {fileID: 2132407541044192886, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1012,6 +1044,38 @@ PrefabInstance:
     - target: {fileID: 3504163451847029134, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012139918065391010, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012139918065391010, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012139918065391010, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012139918065391010, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013005063823848775, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013005063823848775, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013005063823848775, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013005063823848775, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8771008393237857986, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3878,8 +3942,8 @@ MonoBehaviour:
   logPrefab: {fileID: 2643609940113545614, guid: 919b86f472bbf704aa1c55c954754c8f, type: 3}
   fairyList: []
   stickPile: {fileID: 1171777571}
-  nextLevelName: Level3
-  scoreToWin: 5
+  nextLevel: 3
+  scoreToWin: 7
 --- !u!4 &727730051
 Transform:
   m_ObjectHideFlags: 0
