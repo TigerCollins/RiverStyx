@@ -31,6 +31,7 @@ public class AssetsItem
     {
         return name;
     }
+    
 }
 
 public class MetaScript : MonoBehaviour
@@ -42,7 +43,7 @@ public class MetaScript : MonoBehaviour
     private List<CreditsItem> creditsList = new List<CreditsItem>();
     [SerializeField]
     private List<AssetsItem> assetsList = new List<AssetsItem>();
-
+    private enum eLevel { MainMenu, Level1, Level2, Level3 };
     int playerScore;
 
     private void Awake()
@@ -73,9 +74,31 @@ public class MetaScript : MonoBehaviour
         Time.timeScale = _timeScale;
     }
 
-    public void LoadLevel(string levelName)
+    public void LoadLevel(eLevel level)
     {
-        Application.LoadLevel(levelName);
+        Application.LoadLevel(GetLevelStringFromEnum(level));
+    }
+
+    public string GetLevelStringFromEnum(eLevel level)
+    {
+        switch (level)
+        {
+            case eLevel.MainMenu:
+                return "GameLevel";
+                break;
+            case eLevel.Level1:
+                return "Level1";
+                break;
+            case eLevel.Level2:
+                return "Level2";
+                break;
+            case eLevel.Level3:
+                return "Level3";
+                break;
+            default:
+                return "GameLevel";
+                break;
+        }
     }
 
     public void ReloadLevel()
@@ -83,11 +106,18 @@ public class MetaScript : MonoBehaviour
         LoadLevel(SceneManager.GetActiveScene().name);
     }
 
-    public void StartGame(string levelName)
+    public void StartGame(eLevel level)
     {
         SetScore(0);
         SetTimeScale(1);
-        LoadLevel(levelName);
+        LoadLevel(GetLevelStringFromEnum(level));
+    }
+
+    public void NextLevel(eLevel level)
+    {
+        SetScore(0);
+        SetTimeScale(1);
+        LoadLevel(GetLevelStringFromEnum(level));
     }
 
     public void QuitGame()
