@@ -1177,6 +1177,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 636326554308851988, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2132407541044192886, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
@@ -1244,6 +1260,18 @@ PrefabInstance:
     - target: {fileID: 8771008393237857986, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033041081602042532, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5061855
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033041081602042532, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6236205
+      objectReference: {fileID: 0}
+    - target: {fileID: 9033041081602042532, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
       objectReference: {fileID: 0}
     - target: {fileID: 9183638487816906746, guid: 880b54cee9e4c3b45980cd7dc0d96bae, type: 3}
       propertyPath: m_Name
@@ -4120,6 +4148,7 @@ MonoBehaviour:
   fairyList: []
   stickPile: {fileID: 1171777571}
   nextLevelName: GameLevel
+  scoreToWin: 5
 --- !u!4 &727730051
 Transform:
   m_ObjectHideFlags: 0

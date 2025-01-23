@@ -13,6 +13,7 @@ public class RockControllerScript : MonoBehaviour
     public StickPileScript stickPile;
     public static RockControllerScript rockInstance;
     public string nextLevelName;
+    public int scoreToWin;
     void Awake()
     {
         rockInstance = this;
