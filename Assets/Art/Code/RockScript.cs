@@ -21,6 +21,7 @@ public class RockScript : MonoBehaviour
     RockControllerScript rockController;
     public float timerCurrent, timerMax;
     int lastFairy;
+    public AudioSource stickSound;
 
     private void Awake()
     {
@@ -76,6 +77,7 @@ public class RockScript : MonoBehaviour
             }
         }
         allLogs[whichLog].GetComponentInChildren<MeshRenderer>().enabled = true;
+        stickSound.Play();
     }
     public void DeactivateLog()
     {

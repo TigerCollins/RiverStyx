@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRock: {fileID: 0}
-  moveForce: 1.5
-  forceFalloff: 0.1
+  moveForce: 2
+  forceFalloff: 0.05
 --- !u!136 &1133444309584643607
 CapsuleCollider:
   m_ObjectHideFlags: 0
