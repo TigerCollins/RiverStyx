@@ -144,21 +144,14 @@ public class RockScript : MonoBehaviour
         if(!endGameStarted)
         {
             endGameStarted = true;
-            MenuHandler.menuInstance.SwitchToMenu(MenuHandler.menuInstance.winStateMenu);
+            
             yield return new WaitForSeconds(3);
 
             if (/*fairiesThatHavePassed >= maxFairiesAllowed && */MetaScript.metaInstance != null && RockControllerScript.rockInstance != null)
             {
-                    Debug.Log("ahhh");
-                    if (RockControllerScript.rockInstance.nextLevelName == "")
-                    {
-                        MetaScript.metaInstance.LoadLevel("GameLevel");
-                    }
-
-                    else
-                    {
-                        MetaScript.metaInstance.LoadLevel(RockControllerScript.rockInstance.nextLevelName);
-                    }
+                MenuHandler.menuInstance.SwitchToMenu(MenuHandler.menuInstance.winStateMenu);
+                Time.timeScale = 0f;
+                // MetaScript.metaInstance.LoadLevel(RockControllerScript.rockInstance.nextLevel);
             }
 
             else

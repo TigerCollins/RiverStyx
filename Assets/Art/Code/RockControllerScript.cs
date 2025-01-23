@@ -12,7 +12,7 @@ public class RockControllerScript : MonoBehaviour
     public List<FairyScript> fairyList;
     public StickPileScript stickPile;
     public static RockControllerScript rockInstance;
-    public string nextLevelName;
+    public LevelType nextLevel;
     public int scoreToWin;
     void Awake()
     {

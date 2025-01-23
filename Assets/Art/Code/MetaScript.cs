@@ -34,6 +34,8 @@ public class AssetsItem
     
 }
 
+public enum LevelType { MainMenu, Level1, Level2, Level3 }
+
 public class MetaScript : MonoBehaviour
 {
     public static MetaScript metaInstance;
@@ -43,8 +45,8 @@ public class MetaScript : MonoBehaviour
     private List<CreditsItem> creditsList = new List<CreditsItem>();
     [SerializeField]
     private List<AssetsItem> assetsList = new List<AssetsItem>();
-    private enum eLevel { MainMenu, Level1, Level2, Level3 };
     int playerScore;
+    LevelType levelType = LevelType.MainMenu;
 
     private void Awake()
     {
@@ -74,50 +76,85 @@ public class MetaScript : MonoBehaviour
         Time.timeScale = _timeScale;
     }
 
-    public void LoadLevel(eLevel level)
+    public void LoadLevel(LevelType level)
     {
+        levelType = level;
         Application.LoadLevel(GetLevelStringFromEnum(level));
+        print(levelType.ToString());
     }
 
-    public string GetLevelStringFromEnum(eLevel level)
+    public string GetLevelStringFromEnum(LevelType level)
     {
         switch (level)
         {
-            case eLevel.MainMenu:
+            case LevelType.MainMenu:
                 return "GameLevel";
                 break;
-            case eLevel.Level1:
+            case LevelType.Level1:
                 return "Level1";
                 break;
-            case eLevel.Level2:
+            case LevelType.Level2:
                 return "Level2";
                 break;
-            case eLevel.Level3:
+            case LevelType.Level3:
                 return "Level3";
                 break;
             default:
                 return "GameLevel";
                 break;
         }
+        return "GameLevel";
+    }
+
+    public LevelType GetNextLevel(LevelType currentLevel)
+    {
+        switch (currentLevel)
+        {
+            case LevelType.MainMenu:
+                return LevelType.Level1;
+                break;
+            case LevelType.Level1:
+                return LevelType.Level2;
+                break;
+            case LevelType.Level2:
+                return LevelType.Level3;
+                break;
+            case LevelType.Level3:
+                return LevelType.MainMenu;
+                break;
+            default:
+                break;
+        }
+        return LevelType.MainMenu;
     }
 
     public void ReloadLevel()
     {
-        LoadLevel(SceneManager.GetActiveScene().name);
+        LoadLevel(levelType);
     }
 
-    public void StartGame(eLevel level)
+    public void StartGame(LevelType level)
     {
         SetScore(0);
         SetTimeScale(1);
-        LoadLevel(GetLevelStringFromEnum(level));
+        LoadLevel(level);
     }
 
-    public void NextLevel(eLevel level)
+    public void NextLevel(LevelType level)
     {
         SetScore(0);
         SetTimeScale(1);
-        LoadLevel(GetLevelStringFromEnum(level));
+        LoadLevel(level);
+    }
+
+    public void LoadNextLevel()
+    {
+        NextLevel(GetNextLevel(levelType));
+    }
+
+    public void QuitToMainMenu()
+    {
+        StartGame(LevelType.MainMenu);
     }
 
     public void QuitGame()
